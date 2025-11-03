@@ -184,3 +184,4 @@ c:\Users\chril\source\fsrepos\GiraffeChinook\bin\Debug\net9.0\Swashbuckle.AspNet
 c:\Users\chril\source\fsrepos\GiraffeChinook\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 c:\Users\chril\source\fsrepos\GiraffeChinook\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 c:\Users\chril\source\fsrepos\GiraffeChinook\obj\Debug\net9.0\GiraffeChinook.MvcApplicationPartsAssemblyInfo.fs
+C:\Users\chril\source\fsrepos\GiraffeChinook\obj\Debug\net9.0\GiraffeChinook.sourcelink.json

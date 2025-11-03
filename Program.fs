@@ -23,11 +23,18 @@ open GiraffeChinook.Handlers.Artist
 module Program =
     let exitCode = 0
 
+    let withDb (f) : HttpHandler = 
+        fun next ctx -> 
+            let db = ctx.GetService<ChinookContext>()
+            f db next ctx
+
+
     let webApp : HttpHandler =
         choose [
-            route "/artists" >=> (fun next ctx ->
-                let db = ctx.GetService<ChinookContext>()
-                getAllHttpHandler db next ctx)
+            route "/" >=> text "Hello Christoffer! You are awsome"
+            route "/artists" >=> withDb getAllHttpHandler
+            // routef "artists/%i" >=> withDb getByIdHttpHandler
+            routef "/artists/%i" (fun id -> withDb (getByIdHttpHandler id))
         ]
 
     let configureApp (app: IApplicationBuilder) = 
