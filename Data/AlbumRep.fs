@@ -1,12 +1,12 @@
 namespace GiraffeChinook.Data
 
-open GiraffeChinook.Data
 open System.ComponentModel.DataAnnotations
 open System.Collections.Generic
 
 [<CLIMutable>]
-type ArtistRepository = {
+type AlbumRepository = {
     [<Key>]
+    AlbumId: int
+    Title: string
     ArtistId: int
-    Name: string
 }

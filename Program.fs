@@ -31,10 +31,10 @@ module Program =
 
     let webApp : HttpHandler =
         choose [
-            route "/" >=> text "Hello Christoffer! You are awsome"
+            route "/" >=> text "Hello! You are awsome, hope you're having a great day!"
             route "/artists" >=> withDb getAllHttpHandler
-            // routef "artists/%i" >=> withDb getByIdHttpHandler
             routef "/artists/%i" (fun id -> withDb (getByIdHttpHandler id))
+            routef "/artistswithalbums/%i" (fun id -> withDb (getArtistWithAlbumsHttpHandler id))
         ]
 
     let configureApp (app: IApplicationBuilder) = 
@@ -55,14 +55,7 @@ module Program =
 
         builder.Services.AddControllers()
 
-        builder.Services.AddEndpointsApiExplorer()    // Needed for Swagger
-        builder.Services.AddSwaggerGen()  
-
         let app = builder.Build()
-
-        if app.Environment.IsDevelopment() then
-            app.UseSwagger() |> ignore
-            app.UseSwaggerUI() |> ignore // <-- Enables the Swagger UI
 
         app.UseHttpsRedirection()
 

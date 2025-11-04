@@ -13,9 +13,13 @@ module Artist =
     let getAllHttpHandler (db: ChinookContext) : HttpHandler =
         fun next ctx -> 
             task {
-                let! (artists) = db.Artist.ToListAsync()
+                let artistQuery = 
+                    query {
+                        for artist in db.Artist do
+                        select artist
+                    }
 
-                return! json artists next ctx
+                return! json artistQuery next ctx
             }
 
     let getByIdHttpHandler (id: int) (db: ChinookContext) : HttpHandler = 
@@ -28,6 +32,21 @@ module Artist =
                         select artist
                         exactlyOneOrDefault
                 }
+
+                return! json query next ctx
+            }
+
+    let getArtistWithAlbumsHttpHandler (id: int) (db: ChinookContext) : HttpHandler =
+        fun next ctx ->
+            task {
+                let query  =
+                    query {
+                        for artist in db.Artist do
+                        join albums in db.Album
+                            on (artist.ArtistId = albums.ArtistId)
+                        where (artist.ArtistId = id)
+                        select (artist, albums)
+                    }
 
                 return! json query next ctx
             }
