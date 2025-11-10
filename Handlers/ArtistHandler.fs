@@ -18,6 +18,7 @@ module Artist =
                         for artist in db.Artist do
                         select artist
                     }
+                    |> Seq.toList
 
                 return! json artistQuery next ctx
             }

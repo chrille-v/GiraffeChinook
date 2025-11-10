@@ -10,7 +10,7 @@ open System.Reflection
 [<assembly: System.Reflection.AssemblyCompanyAttribute("GiraffeChinook")>]
 [<assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")>]
 [<assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")>]
-[<assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7ad0ac53a04df34f4c35c837050250babab906b3")>]
+[<assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+257ab491815896eb04f17e0a79845f5139bff650")>]
 [<assembly: System.Reflection.AssemblyProductAttribute("GiraffeChinook")>]
 [<assembly: System.Reflection.AssemblyTitleAttribute("GiraffeChinook")>]
 [<assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")>]
