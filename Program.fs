@@ -35,6 +35,7 @@ module Program =
             route "/artists" >=> withDb getAllHttpHandler
             routef "/artists/%i" (fun id -> withDb (getByIdHttpHandler id))
             routef "/artistswithalbums/%i" (fun id -> withDb (getArtistWithAlbumsHttpHandler id))
+            route "/allartistswithalbums" >=> withDb getAllArtistsWithAlbumsHttpHandler
         ]
 
     let configureApp (app: IApplicationBuilder) = 
